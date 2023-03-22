@@ -37,7 +37,7 @@ function Detail() {
 
                 <div>
                     <button>
-                        <Link to={`${process.env.PUBLIC_URL}/`}>돌아가기</Link>
+                        <Link to={`/`}>돌아가기</Link>
                     </button>
                     <div className={styles.container}>
                         <div id={styles.itemOne}>
