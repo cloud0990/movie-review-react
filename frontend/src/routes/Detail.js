@@ -16,7 +16,7 @@ function Detail() {
 
     // await 함수는 async function 내부에서만 사용할 수 있음
 
-    const toMovieDetail = async () => {
+    const toMovieDetail = async() => {
         const responseJson = await (
             await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
         ).json();
