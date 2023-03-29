@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-study/static/css/main.429670a5.css",
-    "main.js": "/react-study/static/js/main.9177c7d5.js",
-    "index.html": "/react-study/index.html",
-    "main.429670a5.css.map": "/react-study/static/css/main.429670a5.css.map",
-    "main.9177c7d5.js.map": "/react-study/static/js/main.9177c7d5.js.map"
+    "main.css": "/movie-review-react/static/css/main.429670a5.css",
+    "main.js": "/movie-review-react/static/js/main.467b7411.js",
+    "index.html": "/movie-review-react/index.html",
+    "main.429670a5.css.map": "/movie-review-react/static/css/main.429670a5.css.map",
+    "main.467b7411.js.map": "/movie-review-react/static/js/main.467b7411.js.map"
   },
   "entrypoints": [
     "static/css/main.429670a5.css",
-    "static/js/main.9177c7d5.js"
+    "static/js/main.467b7411.js"
   ]
 }
