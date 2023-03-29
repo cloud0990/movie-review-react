@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import styles from "css/Detail.module.css";
+import style from "routes/Detail.module.css";
 
 function Detail() {
 
@@ -23,6 +23,8 @@ function Detail() {
 
         setDetail(responseJson.data.movie);
         setLoading(false);
+
+        console.log(responseJson.data.movie)
     }
 
     useEffect(() => {
@@ -32,34 +34,27 @@ function Detail() {
     return (
         <div>
             {loading ? (
-                    <h1>Loading...</h1>
+                <div className={style.loader}>
+                    <span>Loading...</span>
+                </div>
                 ) : (
-
                 <div>
-                    <button>
-                        <Link to={`/`}>돌아가기</Link>
+                    <button className={style.back__home}>
+                        <Link to={`/`} style={{ textDecoration: "none" }}>{`<`}</Link>
                     </button>
-                    <div className={styles.container}>
-                        <div id={styles.itemOne}>
-                            <h1>{detail.title_long}</h1>
-                            <img src={detail.large_cover_image} alt={detail.title} />
+
+                    <div className={style.movie}>
+                        <div className={style.movie__ticket}>
+                            <h2 className={style.movie__title}>{detail.title}</h2>
+                            <img src={detail.large_cover_image} alt={detail.title} className={style.movie__img} />
                         </div>
-                        <div id={styles.itemTwo}>
-                            <p><b>개봉년도: {detail.year}</b></p>
-                            {/*<p>{`개봉년도: ${detail.year}`}</p>*/}
-                            <p><b>추천: {detail.like_count}</b></p>
-                            <p><b>다운로드 수: {detail.download_count}</b></p>
-                            <p><b>평점: {detail.rating}</b></p>
-                            <p><b>상영시간: {detail.runtime} 분</b></p>
-                            <p><b>언어: {detail.language}</b></p>
-                            <div>
-                                <p><strong>장르</strong></p>
-                                <ul>
-                                    {detail.genres.map((g) => (
-                                        <li key={g}>{g}</li>
-                                    ))}
-                                </ul>
-                            </div>
+                        <div className={style.movie__detail}>
+                            {<p>{`개봉년도: ${detail.year} 년`}</p>}
+                            {<p>{`런타임: ${detail.runtime}`}</p>}
+                            {<p>{`평점: ${detail.rating}`}</p>}
+                            {<p>{`언어: ${detail.language}`}</p>}
+                            {<p>{`추천: ${detail.like_count}`}</p>}
+                            {<p>{`다운로드: ${detail.download_count}`}</p>}
                         </div>
                     </div>
                 </div>

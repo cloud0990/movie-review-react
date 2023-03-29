@@ -1,20 +1,23 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import style from "components/Movie.module.css";
 
-// ES6 Template Literal 문법 -> {``} 사용해야함
-// -> {`${name} 님 안녕하세요.`}
-function Movie({id, title, coverImg, summary, genres }) {
+// ES6 Template Literal 문법: {``}
+function Movie({id, title, coverImg, summary, genres, year }) {
     return (
-        <div>
-            <h2>
-                <Link to={`/movie/${id}`}>{title}</Link>
-            </h2>
-            <img src={coverImg} alt={title}/>
-            <p>{summary}</p>
-            <ul>
-                {genres.map((g) => (<li key={g}>{g}</li>))}
-            </ul>
+        <div className={style.movie}>
+            <img src={coverImg} alt={title} className={style.movie__img}/>
+            <div className={style.movie}>
+                <h2 className={style.movie__title}>
+                    <Link to={`/movie/${id}`}>{title}</Link>
+                </h2>
+                <h3 className={style.movie__year}>{year}</h3>
+                <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
+                <ul className={style.movie__genres}>
+                    {genres.map((g) => (<li key={g}>{g}</li>))}
+                </ul>
+            </div>
         </div>
     );
 }
