@@ -1,0 +1,23 @@
+/* all container */
+.container {
+    position: relative;
+    width: 100%;
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #000000;
+    z-index: 10;
+}
+
+/* text shadow : text Shadowing with 5px (width) 5px (height) color */
+.pageName {
+    position: relative;
+    top: 20%;
+    font-size: 20px;
+}
+
+/* When you touch the pageName, it would be bigger */
+.pageName:hover {
+    transform: scale(1.1);
+}

@@ -53,3 +53,8 @@ export default function App() {
     );
 }
 ```
+<br>
+
+```
+npm i recoil
+```
