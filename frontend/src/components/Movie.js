@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 
 import style from "styles/components/Movie.module.css";
 
-// ES6 Template Literal 문법: {``}
-function Movie({id, title, coverImg, summary, genres, year }) {
+function Movie({ id, title, coverImg, genres, year, movie__style }) {
+    if(coverImg === "") {
+        return null;
+    }
+
     return (
-        <div className={style.movie}>
+        <div className={style.movie} style={movie__style}>
             <img src={coverImg} alt={title} className={style.movie__img}/>
-            <div className={style.movie}>
+            <div>
                 <h2 className={style.movie__title}>
                     <Link to={`/movie/${id}`}>{title}</Link>
                 </h2>
                 <h3 className={style.movie__year}>{year}</h3>
-                <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
                 <ul className={style.movie__genres}>
                     {genres.map((g) => (<li key={g}>{g}</li>))}
                 </ul>
