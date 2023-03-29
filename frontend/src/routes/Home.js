@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Movie from "components/Movie";
 
-import style from "routes/Home.module.css";
+import style from "styles/routes/Home.module.css";
 
 function Home() {
 

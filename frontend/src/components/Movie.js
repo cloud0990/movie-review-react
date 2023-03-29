@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import style from "components/Movie.module.css";
+import style from "styles/components/Movie.module.css";
 
 // ES6 Template Literal 문법: {``}
 function Movie({id, title, coverImg, summary, genres, year }) {
