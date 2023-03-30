@@ -10,6 +10,7 @@ import {RecoilRoot} from 'recoil';
 import Nav from "components/Navbar";
 import Home from "routes/Home";
 import Detail from "routes/Detail";
+import Page from "components/Page";
 
 export default function App() {
     return (
@@ -19,6 +20,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/movie/:id" element={<Detail />}/>
+                    <Route path="/page/:detail" element={<Page />}/>
                 </Routes>
             </Router>
         </RecoilRoot>
