@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Loading from "components/Loading";
+import Main from "components/Main";
 import Slide from "components/Slide";
 import navList from "atom/NavList";
 
@@ -51,10 +52,13 @@ function Home() {
     return (
         <div>
             {loading ? <Loading /> : (
-
-                    <div className={style.container}>
+                <div>
+                    <div className={style.main__container}>
+                        {(movie.length > 0) ? <Main movie={movie[0]}/> : null}
+                    </div>
+                    <div className={style.slide__container}>
                         {navList.map((element, idx) => (
-                                <div className={style.slide__box} key={idx}>
+                            <div className={style.slide__box} key={idx}>
                                     <h4 className={style.title}>
                                         <Link to={`/page/${element.path}`} key={idx}>
                                             <span>{element.title}</span>
@@ -65,12 +69,12 @@ function Home() {
                                             <Slide movie={movie[idx]}/>
                                         )
                                     }
-                                </div>
-                            )
-                        )}
+                            </div>
+                        ))}
                     </div>
-                )
-            }
+
+                </div>
+            )}
         </div>
     )
 }

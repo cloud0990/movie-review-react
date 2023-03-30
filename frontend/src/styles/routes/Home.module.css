@@ -1,6 +1,16 @@
 .container {
     height: 100%;
+}
+
+.slide__container {
     margin-top: 60px;
+}
+
+.main__container {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .slide__box {
