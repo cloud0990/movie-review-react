@@ -42,8 +42,8 @@ function Slide({ movie }) {
                 </div>
             </div>
             <div>
-                <button className={style.left} onClick={leftBtn}><i className="fas fa-caret-square-left"></i></button>
-                <button className={style.right} onClick={rightBtn}><i className="fas fa-caret-square-right"></i></button>
+                <button className={style.left} onClick={ leftBtn }>{`<`}</button>
+                <button className={style.right} onClick={ rightBtn }>{`>`}</button>
             </div>
         </div>
     )

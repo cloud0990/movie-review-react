@@ -49,23 +49,26 @@ function Home() {
     }, []);
 
     return (
-        <div className={style.container}>
-            {navList.map((slide, idx) => (
-                        <div className={style.slide__box} key={idx}>
-                            <h4 className={style.title}>
-                                <Link to={`/page/${slide.path}/1`}>
-                                    <i className="fas fa-external-link-alt"></i>
-                                    <span>{slide.title} Movie</span>
-                                </Link>
-                            </h4>
-                            { movie && movie.length === 0 ? (
-                                    <Loading />
-                                ) : (
-                                    <Slide movie={movie[idx]} />
-                                )
-                            }
-                        </div>
-                    )
+        <div>
+            {loading ? <Loading /> : (
+
+                    <div className={style.container}>
+                        {navList.map((element, idx) => (
+                                <div className={style.slide__box} key={idx}>
+                                    <h4 className={style.title}>
+                                        <Link to={`/page/${element.path}`} key={idx}>
+                                            <span>{element.title}</span>
+                                        </Link>
+                                    </h4>
+                                    {
+                                        (movie.length < 0) ? <Loading /> : (
+                                            <Slide movie={movie[idx]}/>
+                                        )
+                                    }
+                                </div>
+                            )
+                        )}
+                    </div>
                 )
             }
         </div>

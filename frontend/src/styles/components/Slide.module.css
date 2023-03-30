@@ -1,5 +1,6 @@
 .container {
     position: relative;
+    margin-top: 80px;
 }
 .slide__show {
     width: 1050px;
@@ -20,8 +21,8 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: #00d2fc;
-    opacity: 0.8;
+    color: #ffffff;
+    opacity: 0.5;
     font-size: 44px;
 
     transition: all 0.4s;
@@ -34,14 +35,12 @@
 }
 
 .left {
-    text-shadow: 3px 2px 0 #009efa;
     position: absolute;
     top: calc(50% - 22px);
     left: 80px;
 }
 
 .right {
-    text-shadow: -3px 2px 0 #009efa;
     position: absolute;
     top: calc(50% - 22px);
     right: 80px;

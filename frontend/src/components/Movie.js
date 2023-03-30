@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import style from "styles/components/Movie.module.css";
 
-function Movie({ id, title, coverImg, genres, year, movie__style }) {
+function Movie({ id, title, coverImg, genres, year, summary, movie__style }) {
     if(coverImg === "") {
         return null;
     }
@@ -17,19 +17,22 @@ function Movie({ id, title, coverImg, genres, year, movie__style }) {
                 </h2>
                 <h3 className={style.movie__year}>{year}</h3>
                 <ul className={style.movie__genres}>
-                    {genres.map((g) => (<li key={g}>{g}</li>))}
+                    {genres.map((genre) => (
+                        <li key={genre}>{genre}</li>
+                    ))}
                 </ul>
+                <p>{summary && summary.length > 180 ? `${summary.slice(0, 180)}...` : summary}</p>
             </div>
         </div>
     );
 }
 
-// Home 에서 전달되는 함수 Argument (Props 가 Object 로 전달해줌)
+// Slide 에서 전달되는 함수 Argument (Props 가 Object 로 전달해줌)
 Movie.prototype = {
     id: PropTypes.number.isRequired,
     coverImg: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
+    /*summary: PropTypes.string.isRequired,*/
     genres: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 

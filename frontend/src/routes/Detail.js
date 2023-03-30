@@ -15,33 +15,37 @@ function Detail() {
     const [loading, setLoading] = useState(true);
     const [detail, setDetail] = useState([]);
 
-    useEffect(() => {
-        const toMovieDetail = async() => {
-            const responseJson = await (
-                await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-            ).json();
+    const toMovieDetail = async() => {
+        const responseJson = await (
+            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=` + id)
+        ).json();
 
-            setDetail(responseJson.data.movie);
-            setLoading(false);
-        }
+        setDetail(responseJson.data.movie);
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        toMovieDetail();
     }, []);
 
     return (
-        <div>
+        <div className={style.container}>
             {loading ? <Loading />
                     : (
-                        <div className={style.movie}>
-                            <div className={style.movie__ticket}>
-                                <h2 className={style.movie__title}>{detail.title}</h2>
-                                <img src={detail.large_cover_image} alt={detail.title} className={style.movie__img} />
-                            </div>
-                            <div className={style.movie__detail}>
-                                {<p>{`개봉년도: ${detail.year} 년`}</p>}
-                                {<p>{`런타임: ${detail.runtime}`}</p>}
-                                {<p>{`평점: ${detail.rating}`}</p>}
-                                {<p>{`언어: ${detail.language}`}</p>}
-                                {<p>{`추천: ${detail.like_count}`}</p>}
-                                {<p>{`다운로드: ${detail.download_count}`}</p>}
+                        <div>
+                            <img className={style.bg} src={detail.background_image}/>
+                            <div className={style.show}>
+                                <img className={style.img} src={detail.large_cover_image} alt={detail.title}/>
+                                <div className={style.textbox}>
+                                    <h1 className={style.title}>
+                                        <a href={detail.url} target="_blank">{detail.title_long}</a>
+                                    </h1>
+                                        {<p>{`런타임: ${detail.runtime}`}</p>}
+                                        {<p>{`평점: ${detail.rating}`}</p>}
+                                        {<p>{`언어: ${detail.language}`}</p>}
+                                        {<p>{`추천: ${detail.like_count}`}</p>}
+                                        {<p>{`다운로드: ${detail.download_count}`}</p>}
+                                </div>
                             </div>
                         </div>
                     )
